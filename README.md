@@ -14,7 +14,7 @@ It is small on purpose: eight colours, two fonts, a handful of components, and a
 | **Web:** one stylesheet with the tokens and the components | [`dist/bojicas.css`](dist/bojicas.css), shown on the [example page](example/index.html), explained in [Components](docs/components.md) |
 | **Language:** tone, punctuation, dates, names, arrows, alt texts | [Language](docs/language.md) |
 | **Slides, documents, social images** | [Slides and documents](docs/slides-and-documents.md) |
-| **Fonts:** Space Grotesk and JetBrains Mono, with their licences | [`dist/fonts/`](dist/fonts/) |
+| **Fonts:** [Space Grotesk](https://floriankarsten.github.io/space-grotesk/) and [JetBrains Mono](https://www.jetbrains.com/lp/mono/), with their licences | [`dist/fonts/`](dist/fonts/) |
 
 ## The rules in one minute
 

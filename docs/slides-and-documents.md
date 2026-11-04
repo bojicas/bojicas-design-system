@@ -6,7 +6,7 @@ The same look as the websites, for talks, PDFs and social images. Colours and fo
 
 - **Format:** 16:9, 1920 x 1080 px.
 - **Ground:** `bg` light (`#FAFBFC`) by default. Use the dark ground (`#0F1B2D`) for a whole deck in a dark room, not for single slides.
-- **Fonts:** Space Grotesk for all text, JetBrains Mono for labels, code and the slide footer. Install both from `dist/fonts/` or from their projects.
+- **Fonts:** [Space Grotesk](https://floriankarsten.github.io/space-grotesk/) for all text, [JetBrains Mono](https://www.jetbrains.com/lp/mono/) for labels, code and the slide footer. Install both from their official pages; the files in `dist/fonts/` are for the web only.
 - **One idea per slide.** A title that states it, and at most three short points.
 - **Sizes:** title 64 to 80 px, text at least 32 px, labels at least 20 px.
 - **Margins:** at least 96 px on every side.

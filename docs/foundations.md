@@ -29,8 +29,8 @@ The blue `#226DBD` and the orange `#E8740C` / `#F28C28` are the same hues as in 
 
 | Role | Font | Weights | Use |
 |---|---|---|---|
-| `sans` | Space Grotesk | 400, 600 | All text: headings, body, buttons |
-| `mono` | JetBrains Mono | 400 | Small labels, the role line, fact labels, the footer, back links, code |
+| `sans` | [Space Grotesk](https://floriankarsten.github.io/space-grotesk/) | 400, 600 | All text: headings, body, buttons |
+| `mono` | [JetBrains Mono](https://www.jetbrains.com/lp/mono/) | 400 | Small labels, the role line, fact labels, the footer, back links, code |
 
 | Size token | Value | Use |
 |---|---|---|
