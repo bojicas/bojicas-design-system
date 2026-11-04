@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.0 (Wednesday, 4 November 2026)
+
+- A definition list inside `.prose` looks like `.facts`, since Markdown cannot add a class. silviu.bojica.com needs this for its imprint and privacy statement.
+
 ## 0.1.0 (Wednesday, 4 November 2026)
 
 The first version, taken from what [silviu.bojica.com](https://silviu.bojica.com/) and [bojica.com](https://bojica.com/) already use.

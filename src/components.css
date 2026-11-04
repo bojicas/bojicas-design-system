@@ -89,18 +89,19 @@
 .back-link .arrow { color: var(--orange); }
 .back-link:hover .back-link-text { text-decoration: underline; text-underline-offset: 4px; }
 
-/* Facts: label beside value on wide screens, above it on narrow ones (owner, contact, documents). */
-.facts {
+/* Facts: label beside value on wide screens, above it on narrow ones (owner, contact, documents).
+   A definition list in running text gets the same look, since Markdown cannot add a class. */
+.facts, .prose dl {
   display: grid;
   grid-template-columns: max-content minmax(0, 1fr);
   align-items: baseline;
   column-gap: 28px;
   margin: var(--space-s) 0 0;
 }
-.facts dt { grid-column: 1; font-family: var(--mono); font-size: var(--size-small); color: var(--muted); }
+.facts dt, .prose dt { grid-column: 1; font-family: var(--mono); font-size: var(--size-small); color: var(--muted); }
 /* Each value is at least 44 px high, so a link that stands alone is easy to tap. */
-.facts dd { grid-column: 2; margin: 0; padding-block: 8.5px; font-size: var(--size-body); line-height: 1.6; }
-.facts dd > a, .facts dt > a { display: inline-flex; align-items: center; min-height: var(--touch-min); margin-block: -8.5px; color: var(--blue); }
+.facts dd, .prose dd { grid-column: 2; margin: 0; padding-block: 8.5px; font-size: var(--size-body); line-height: 1.6; }
+.facts dd > a, .facts dt > a, .prose dd > a, .prose dt > a { display: inline-flex; align-items: center; min-height: var(--touch-min); margin-block: -8.5px; color: var(--blue); }
 
 /* Footer: copyright and place, then the legal links, with orange dots outside the links. */
 .footer {
@@ -125,9 +126,9 @@
   /* Narrow screens: the legal links get their own line, without a leading dot. */
   .footer { flex-direction: column; }
   .footer-links li:first-child::before { content: none; }
-  .facts { grid-template-columns: minmax(0, 1fr); gap: 0; }
-  .facts dt, .facts dd { grid-column: 1; }
-  .facts dd + dt { margin-top: var(--space-xs); }
+  .facts, .prose dl { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .facts dt, .facts dd, .prose dt, .prose dd { grid-column: 1; }
+  .facts dd + dt, .prose dd + dt { margin-top: var(--space-xs); }
 }
 
 @media (prefers-reduced-motion: reduce) {
