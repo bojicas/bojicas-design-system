@@ -3,6 +3,7 @@
 ## 0.3.0 (Wednesday, 4 November 2026)
 
 - Links to sites of someone else end in a small orange ↗, also in running text, outside the underline (`a.out`). Links to your own sites carry no mark. Links open in the same tab. The language docs show in one table how buttons and links use the arrows.
+- `build.py --tokens-out PATH` also writes the tokens as JSON, for a page that shows them.
 - Foundations and README: the 44 px rule holds for buttons and links that stand alone; a link inside a sentence follows the line height.
 - Images: a photo by someone else carries a credit, covers are 1.91 : 1, and the source is at most 2400 px wide with its metadata stripped.
 - Tags: a row of `#name` links, 44 px high. The orange `#` is part of the link but not underlined, like the arrow of the back link. The posts on [silviu.bojica.com](https://silviu.bojica.com/) need this.

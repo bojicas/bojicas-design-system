@@ -41,6 +41,12 @@ If your fonts live at another address, build the stylesheet for it. Only the Pyt
 python3 build.py --font-path /fonts/
 ```
 
+A page that shows the system, such as [the overview on silviu.bojica.com](https://silviu.bojica.com/design-system/), can also take the tokens, so its version and colours always match the stylesheet:
+
+```sh
+python3 build.py --font-path /fonts/ --out <site>/assets/css/bojicas.css --tokens-out <site>/data/bojicas.json
+```
+
 ## Change it
 
 1. Change a value in `tokens.json`, or a component in `src/`.

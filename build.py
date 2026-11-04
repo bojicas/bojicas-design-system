@@ -3,6 +3,7 @@
 
     python3 build.py                     fonts are looked for in fonts/ next to the stylesheet (dist/fonts/)
     python3 build.py --font-path /fonts/ fonts live at another address, for example on a Hugo site
+    python3 build.py --tokens-out PATH   also write the tokens as JSON, for a page that shows them
 
 Only the Python standard library is needed.
 """
@@ -55,6 +56,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--font-path", default="fonts/", help="address of the fonts folder, ending in /")
     parser.add_argument("--out", default=str(ROOT / "dist" / "bojicas.css"))
+    parser.add_argument("--tokens-out", help="also write tokens.json here, for example into a Hugo site's data/ folder")
     args = parser.parse_args()
 
     tokens = json.loads((ROOT / "tokens.json").read_text())
@@ -76,6 +78,12 @@ def main():
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text("\n\n".join(parts) + "\n")
     print(f"Wrote {out} ({out.stat().st_size} bytes)")
+    if args.tokens_out:
+        # The same tokens the stylesheet was made from, so a page can show the version and the colours.
+        data = Path(args.tokens_out)
+        data.parent.mkdir(parents=True, exist_ok=True)
+        data.write_text((ROOT / "tokens.json").read_text())
+        print(f"Wrote {data}")
 
 
 if __name__ == "__main__":
