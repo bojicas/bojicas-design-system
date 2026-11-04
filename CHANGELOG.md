@@ -2,7 +2,7 @@
 
 ## 0.1.0 (Wednesday, 4 November 2026)
 
-The first version, taken from what silviu.bojica.com and bojica.com already use.
+The first version, taken from what [silviu.bojica.com](https://silviu.bojica.com/) and [bojica.com](https://bojica.com/) already use.
 
 - Tokens for colour (light and dark), type, size, space, radius and touch targets, in `tokens.json`.
 - `build.py` makes `dist/bojicas.css` from the tokens and `src/`.
