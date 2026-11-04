@@ -59,6 +59,24 @@ A small mono label with a short orange bar. The bar sits above the label; add `b
 <a class="back-link" href="/"><span class="arrow" aria-hidden="true">←</span><span class="back-link-text">Silviu Bojica</span></a>
 ```
 
+## Link to someone else's site
+
+Every link to a site of someone else ends in a small orange `↗`, always in the mono font at label size (13 px), wherever it is: in running text, in a caption, in a list of facts. Only the text is underlined; the arrow has no line under it, like the arrow of the back link. A line never breaks between the last word and the arrow. On hover the arrow moves 1.5 px up and to the right, a little less than the arrow of a button, unless the reader asked for less motion. Screen readers skip the arrow. Links to your own sites, which link to each other, carry no mark. Links open in the same tab.
+
+```html
+<a class="out" href="https://unsplash.com/"><span class="out-text">Unsplash</span><span class="arrow-out" aria-hidden="true">↗</span></a>
+```
+
+## Tags
+
+A row of `#name` links, for example under the title of a post. Each tag is 44 px high. The orange `#` is part of the link, but it has no line under it: only the name is underlined, the same rule as the arrow of the back link. The `#` is hidden from screen readers, so they read only the name.
+
+```html
+<ul class="tags" aria-label="Tags">
+  <li><a class="tag" href="/tags/design-system/"><span class="tag-mark" aria-hidden="true">#</span><span class="tag-name">design system</span></a></li>
+</ul>
+```
+
 ## Facts
 
 A list of labels and values, for an owner, contact details or documents. Label beside value on wide screens, above it on phones. A value that is a link is 44 px high.

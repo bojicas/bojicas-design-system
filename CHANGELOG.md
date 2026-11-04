@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.3.0 (Wednesday, 4 November 2026)
+
+- Links to sites of someone else end in a small orange ↗, also in running text, outside the underline (`a.out`). Links to your own sites carry no mark. Links open in the same tab.
+- Tags: a row of `#name` links, 44 px high. The orange `#` is part of the link but not underlined, like the arrow of the back link. The posts on [silviu.bojica.com](https://silviu.bojica.com/) need this.
+
 ## 0.2.0 (Wednesday, 4 November 2026)
 
 - A definition list inside `.prose` looks like `.facts`, since Markdown cannot add a class. silviu.bojica.com needs this for its imprint and privacy statement.

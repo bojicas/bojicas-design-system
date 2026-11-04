@@ -32,7 +32,8 @@ A design system usually stops at colours and buttons. This one also sets how the
 ## Links and arrows
 
 - **→ for your own sites,** for example a button from [bojica.com](https://bojica.com/) to [silviu.bojica.com](https://silviu.bojica.com/).
-- **↗ for sites of someone else,** for example LinkedIn, GitHub or Instagram.
+- **↗ for sites of someone else,** for example LinkedIn, GitHub or Instagram. This holds for every link, also in running text: a small orange ↗ follows the link text, so the reader knows before the click. Links to your own sites in running text carry no mark.
+- **Links open in the same tab.** The reader can still open a new tab on purpose, and the Back button keeps working.
 - **Link text says where it goes:** "orgthread on GitHub", not "click here".
 - **Every web address in a text is a link.** When a text names a site, such as [bojica.com](https://bojica.com/), [silviu.bojica.com](https://silviu.bojica.com/) or [orgthread.dev](https://orgthread.dev/), the name links to it. This holds for pages, legal texts, posts and READMEs. On slides and in print, where nothing can be clicked, write the address in full.
 - **Do not start a sentence with a lower-case address** either. Rephrase: "My own site", "The family page".

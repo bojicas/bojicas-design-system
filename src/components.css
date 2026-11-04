@@ -89,6 +89,36 @@
 .back-link .arrow { color: var(--orange); }
 .back-link:hover .back-link-text { text-decoration: underline; text-underline-offset: 4px; }
 
+/* Link to someone else's site, also in running text: the text is underlined, then a small orange ↗ without
+   a line. The arrow is a plain character, so a line never breaks between the last word and the arrow. */
+a.out { text-decoration-line: none; }
+a.out .out-text { text-decoration-line: underline; text-decoration-thickness: inherit; }
+/* The arrow is always the small mono one of a label, so it stays discreet next to larger text. */
+a.out .arrow-out { position: relative; left: 0; top: 0; margin-right: 2px; color: var(--orange); font-family: var(--mono); font-size: var(--size-label); transition: left 120ms ease, top 120ms ease; }
+/* The arrow sits close to the link, with its space after it, so it has room to move on hover without touching
+   the next word. On hover it moves its way, out of the site, a little less than the arrow of a button. It moves by position,
+   not by transform, so it stays a plain character that never wraps alone. */
+a.out:hover .arrow-out { left: 1.5px; top: -1.5px; }
+/* In a list of facts a value link is a flex box; there the text flows inline, so the arrow follows the last
+   word when the text wraps. The padding keeps the link 44 px high. */
+.facts dd > a.out, .facts dt > a.out, .prose dd > a.out, .prose dt > a.out { display: inline-block; padding-block: 8.5px; }
+
+/* Tags: "#name" links, for example under the title of a post. The orange # is part of the link,
+   but like the arrow of the back link it has no line under it: only the name is underlined. */
+.tags { list-style: none; margin: var(--space-s) 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0 var(--space-s); }
+.tag {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--touch-min);
+  font-family: var(--mono);
+  font-size: var(--size-small);
+  color: var(--blue);
+  text-decoration: none;
+}
+.tag .tag-mark { color: var(--orange); margin-right: 2px; }
+.tag .tag-name { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+.tag:hover .tag-name { text-decoration-thickness: 2px; }
+
 /* Facts: label beside value on wide screens, above it on narrow ones (owner, contact, documents).
    A definition list in running text gets the same look, since Markdown cannot add a class. */
 .facts, .prose dl {
@@ -134,4 +164,6 @@
 @media (prefers-reduced-motion: reduce) {
   .button, .button .arrow { transition: none; }
   .button:hover .arrow, .button:hover .arrow-own { transform: none; }
+  a.out .arrow-out { transition: none; }
+  a.out:hover .arrow-out { left: 0; top: 0; }
 }
