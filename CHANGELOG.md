@@ -2,7 +2,7 @@
 
 ## 0.3.0 (Wednesday, 4 November 2026)
 
-- Links to sites of someone else end in a small orange ↗, also in running text, outside the underline (`a.out`). Links to your own sites carry no mark. Links open in the same tab.
+- Links to sites of someone else end in a small orange ↗, also in running text, outside the underline (`a.out`). Links to your own sites carry no mark. Links open in the same tab. The language docs show in one table how buttons and links use the arrows.
 - Tags: a row of `#name` links, 44 px high. The orange `#` is part of the link but not underlined, like the arrow of the back link. The posts on [silviu.bojica.com](https://silviu.bojica.com/) need this.
 
 ## 0.2.0 (Wednesday, 4 November 2026)

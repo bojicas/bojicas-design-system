@@ -31,8 +31,16 @@ A design system usually stops at colours and buttons. This one also sets how the
 
 ## Links and arrows
 
-- **→ for your own sites,** for example a button from [bojica.com](https://bojica.com/) to [silviu.bojica.com](https://silviu.bojica.com/).
-- **↗ for sites of someone else,** for example LinkedIn, GitHub or Instagram. This holds for every link, also in running text: a small orange ↗ follows the link text, so the reader knows before the click. Links to your own sites in running text carry no mark.
+An arrow tells the reader, before the click, where a link goes. Buttons and links use it differently:
+
+| Where the link goes | Button | Link in text, a caption or a list |
+|---|---|---|
+| A page of the same site | → | no mark |
+| Another of your own sites | → | no mark |
+| A site of someone else | ↗ | ↗, small and orange, after the text |
+
+- **A button always has an arrow.** It stands alone, with no sentence around it, so the arrow turns it into a "go there". → means you stay with the same owner, for example a button from [bojica.com](https://bojica.com/) to [silviu.bojica.com](https://silviu.bojica.com/). ↗ means you go to someone else, for example LinkedIn, GitHub or Instagram.
+- **A link in text only marks what leaves your sites.** The words around it already say where it goes. So only a link to a site of someone else gets the small ↗, as a warning that the reader leaves. Your own sites link to each other and carry no mark.
 - **Links open in the same tab.** The reader can still open a new tab on purpose, and the Back button keeps working.
 - **Link text says where it goes:** "orgthread on GitHub", not "click here".
 - **Every web address in a text is a link.** When a text names a site, such as [bojica.com](https://bojica.com/), [silviu.bojica.com](https://silviu.bojica.com/) or [orgthread.dev](https://orgthread.dev/), the name links to it. This holds for pages, legal texts, posts and READMEs. On slides and in print, where nothing can be clicked, write the address in full.

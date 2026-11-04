@@ -61,7 +61,7 @@ A small mono label with a short orange bar. The bar sits above the label; add `b
 
 ## Link to someone else's site
 
-Every link to a site of someone else ends in a small orange `↗`, always in the mono font at label size (13 px), wherever it is: in running text, in a caption, in a list of facts. Only the text is underlined; the arrow has no line under it, like the arrow of the back link. A line never breaks between the last word and the arrow. On hover the arrow moves 1.5 px up and to the right, a little less than the arrow of a button, unless the reader asked for less motion. Screen readers skip the arrow. Links to your own sites, which link to each other, carry no mark. Links open in the same tab.
+Every link to a site of someone else ends in a small orange `↗`, always in the mono font at label size (13 px), wherever it is: in running text, in a caption, in a list of facts. Only the text is underlined; the arrow has no line under it, like the arrow of the back link. A line never breaks between the last word and the arrow. On hover the arrow moves 1.5 px up and to the right, a little less than the arrow of a button, unless the reader asked for less motion. Screen readers skip the arrow. Links to your own sites, which link to each other, carry no mark. Links open in the same tab. A button always has its own arrow instead: → to your own sites, ↗ to others (see the table in the language docs).
 
 ```html
 <a class="out" href="https://unsplash.com/"><span class="out-text">Unsplash</span><span class="arrow-out" aria-hidden="true">↗</span></a>
