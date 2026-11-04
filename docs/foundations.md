@@ -51,11 +51,11 @@ The blue `#226DBD` and the orange `#E8740C` / `#F28C28` are the same hues as in 
 | `space-xs` / `s` / `m` / `l` / `xl` | 6 / 12 / 24 / 40 / 72 px |
 | `radius-card` | 16 px |
 | `radius-pill` | fully round, for buttons |
-| `touch-min` | 44 px: the least height of every link and button |
+| `touch-min` | 44 px: the least height of every button and of every link that stands alone |
 
 ## Rules that hold everywhere
 
 - **Light and dark mode,** from a phone width of 360 px to wide screens, with no sideways scroll.
-- **Links and buttons at least 44 px high.**
+- **Buttons and links that stand alone at least 44 px high,** such as the back link, tags, footer links and list items. A link inside a sentence follows the line height instead: in running text, and in a short credit such as "Photo: name on Unsplash". A 44 px line would tear the text apart, and the accessibility rules (WCAG 2.2, target size) exempt such links.
 - **No requests to other servers:** no CDNs, no font services, no analytics, no embeds. Links to other sites are fine.
 - **Flat surfaces:** no gradients, no shadows, no glow.

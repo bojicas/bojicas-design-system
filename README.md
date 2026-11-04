@@ -20,7 +20,7 @@ It is small on purpose: eight colours, two fonts, a handful of components, and a
 
 - Blue and orange on a light or a deep navy ground. Never red, never black as an accent.
 - Every page works in light and dark mode, from 360 px to wide screens.
-- Links and buttons are at least 44 px high. Every image has a real alt text.
+- Buttons and links that stand alone are at least 44 px high; a link inside a sentence follows the line height. Every image has a real alt text.
 - No requests to other servers: fonts and images come from the site itself.
 - Simple English, short sentences, no contractions, no em dashes, metric units, dates with the day name.
 - → for your own sites, ↗ for sites of someone else, also after links in running text.

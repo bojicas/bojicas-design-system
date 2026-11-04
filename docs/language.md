@@ -50,6 +50,9 @@ An arrow tells the reader, before the click, where a link goes. Buttons and link
 
 - **Every image has a real alt text** that says what it shows: "Pen drawing of Silviu Bojica, standing, hands in his pockets". Not "image" or "photo".
 - **A logo's alt text** names the logo and what it shows: "orgthread logo: a thread woven through a star".
+- **A photo by someone else carries a credit under it:** "Photo: Mika Baumeister on Unsplash", with the name and the source as links, each with its small ↗. A site with several such photos also lists them on a credits page, with the photo, its author, its source, its licence and where it is used.
+- **A cover has the shape of a share card,** 1.91 : 1, so the same picture works above a post and in a shared link.
+- **The source of a photo is at most 2400 px wide, with its metadata stripped** (for example `jpegtran -copy none`), so no camera data or C2PA block travels along. The site serves its own copy, in the sizes it needs; it never loads the photo from the photo service.
 
 ## What stays out
 
