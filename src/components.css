@@ -1,0 +1,136 @@
+/* Components. Each one works in light and dark mode and from 360 px to wide screens. */
+
+/* Eyebrow: a small mono label with an orange bar, above or below a title. */
+.eyebrow {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+.eyebrow::before {
+  content: "";
+  display: block;
+  width: 44px;
+  height: 3px;
+  border-radius: var(--radius-bar);
+  background: var(--orange);
+  margin-bottom: 18px;
+}
+.eyebrow.bar-below::before { display: none; }
+.eyebrow.bar-below::after {
+  content: "";
+  display: block;
+  width: 44px;
+  height: 3px;
+  border-radius: var(--radius-bar);
+  background: var(--orange);
+  margin: 14px auto 0;
+}
+
+/* Titles and the lead line under them. */
+.display { margin: 0; font-weight: 600; font-size: var(--size-display); line-height: 1.02; letter-spacing: -0.02em; }
+.title { margin: 32px 0 0; font-weight: 600; font-size: var(--size-title); line-height: 1.08; letter-spacing: -0.02em; }
+.lead { margin: 18px 0 0; max-width: 36ch; font-size: var(--size-lead); line-height: 1.45; color: var(--muted); }
+.role { margin: 12px 0 0; font-family: var(--mono); font-size: var(--size-small); color: var(--muted); }
+
+/* Button: a blue pill with an arrow. → leads to one of your own sites, ↗ to a site of someone else. */
+.buttons { list-style: none; margin: 32px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--space-s); }
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: var(--touch-min);
+  padding: 0 20px;
+  border: 1.5px solid var(--blue);
+  border-radius: var(--radius-pill);
+  color: var(--blue);
+  font-weight: 600;
+  font-size: 16px;
+  text-decoration: none;
+  transition: background-color 120ms ease, color 120ms ease;
+}
+.button:hover { background: var(--blue); color: var(--bg); }
+.button:focus-visible { outline-offset: 3px; }
+.button .arrow { display: inline-block; color: var(--orange); font-weight: 400; transition: color 120ms ease, transform 120ms ease; }
+/* On hover the button fills with blue, where orange is too faint: the arrow takes the text colour and moves its way. */
+.button:hover .arrow { color: inherit; transform: translate(2px, -2px); }
+.button:hover .arrow-own { transform: translateX(3px); }
+
+/* Card: a raised panel, for example one person on a family page. */
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: var(--space-m); }
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: var(--space-l) 28px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card);
+}
+.card .about { margin: 18px 0 0; max-width: 30ch; font-size: 18px; line-height: 1.5; text-wrap: balance; flex: 1; }
+.card .button { margin-top: var(--space-m); }
+
+/* Avatar: a pen drawing in a circle, on its white paper in both modes. */
+.avatar { width: 168px; height: 168px; border-radius: 50%; border: 1px solid var(--line); object-fit: cover; background: var(--paper); }
+
+/* Back link: "← Name" at the top of a page. On hover only the name is underlined, not the arrow. */
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: var(--touch-min);
+  font-family: var(--mono);
+  font-size: var(--size-small);
+  color: var(--blue);
+  text-decoration: none;
+}
+.back-link .arrow { color: var(--orange); }
+.back-link:hover .back-link-text { text-decoration: underline; text-underline-offset: 4px; }
+
+/* Facts: label beside value on wide screens, above it on narrow ones (owner, contact, documents). */
+.facts {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  align-items: baseline;
+  column-gap: 28px;
+  margin: var(--space-s) 0 0;
+}
+.facts dt { grid-column: 1; font-family: var(--mono); font-size: var(--size-small); color: var(--muted); }
+/* Each value is at least 44 px high, so a link that stands alone is easy to tap. */
+.facts dd { grid-column: 2; margin: 0; padding-block: 8.5px; font-size: var(--size-body); line-height: 1.6; }
+.facts dd > a, .facts dt > a { display: inline-flex; align-items: center; min-height: var(--touch-min); margin-block: -8.5px; color: var(--blue); }
+
+/* Footer: copyright and place, then the legal links, with orange dots outside the links. */
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0 var(--space-s);
+  padding: 16px 24px 24px;
+  font-family: var(--mono);
+  font-size: var(--size-label);
+  color: var(--muted);
+}
+.footer-meta, .footer-links { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 0 var(--space-s); margin: 0; padding: 0; list-style: none; }
+.footer-meta span + span::before,
+.footer-links li::before { content: "·"; content: "·" / ""; margin-right: var(--space-s); color: var(--orange); }
+.footer-links a { display: inline-flex; align-items: center; min-height: var(--touch-min); color: var(--blue); text-decoration-thickness: 1px; text-underline-offset: 4px; }
+.footer-links a:hover { text-decoration-thickness: 2px; }
+.footer-links a[aria-current="page"] { color: var(--ink); text-decoration: none; }
+
+@media (max-width: 600px) {
+  /* Narrow screens: the legal links get their own line, without a leading dot. */
+  .footer { flex-direction: column; }
+  .footer-links li:first-child::before { content: none; }
+  .facts { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .facts dt, .facts dd { grid-column: 1; }
+  .facts dd + dt { margin-top: var(--space-xs); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button, .button .arrow { transition: none; }
+  .button:hover .arrow, .button:hover .arrow-own { transform: none; }
+}

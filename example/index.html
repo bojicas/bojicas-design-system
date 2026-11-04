@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bojicas Design System: example</title>
+<link rel="stylesheet" href="../dist/bojicas.css">
+<style>
+  /* Only for this example page: the layout of the sections and the colour swatches. */
+  .page { flex: 1; width: 100%; max-width: 880px; margin: 0 auto; padding: 32px 24px 48px; }
+  .section { margin-top: 56px; }
+  .section > h2 { margin: 0 0 18px; font-weight: 600; font-size: var(--size-h2); }
+  .note { margin: 0 0 18px; color: var(--muted); font-size: var(--size-small); }
+  .swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: var(--space-s); list-style: none; margin: 0; padding: 0; }
+  .swatch { border: 1px solid var(--line); border-radius: 12px; overflow: hidden; background: var(--card); }
+  .swatch span { display: block; height: 56px; }
+  .swatch code { display: block; padding: 8px 10px; font-family: var(--mono); font-size: var(--size-label); color: var(--muted); }
+  .type-sample > * + * { margin-top: 12px; }
+</style>
+</head>
+<body>
+<main class="page">
+  <a class="back-link" href="../README.md"><span class="arrow" aria-hidden="true">←</span><span class="back-link-text">README</span></a>
+
+  <p class="eyebrow" style="margin-top: 32px">Bojicas Design System 0.1.0</p>
+  <h1 class="display" style="margin-top: 22px">One look for every public page.</h1>
+  <p class="lead">Colours, type, components and language rules for bojica.com, silviu.bojica.com, orgthread.dev, slides and documents. Switch your system between light and dark mode to see both.</p>
+
+  <section class="section" aria-labelledby="colour">
+    <h2 id="colour">Colour</h2>
+    <p class="note">Blue and orange on a light or a deep navy ground. Never red, never black as an accent.</p>
+    <ul class="swatches">
+      <li class="swatch"><span style="background: var(--bg)"></span><code>bg</code></li>
+      <li class="swatch"><span style="background: var(--card)"></span><code>card</code></li>
+      <li class="swatch"><span style="background: var(--ink)"></span><code>ink</code></li>
+      <li class="swatch"><span style="background: var(--muted)"></span><code>muted</code></li>
+      <li class="swatch"><span style="background: var(--line)"></span><code>line</code></li>
+      <li class="swatch"><span style="background: var(--blue)"></span><code>blue</code></li>
+      <li class="swatch"><span style="background: var(--orange)"></span><code>orange</code></li>
+      <li class="swatch"><span style="background: var(--paper)"></span><code>paper</code></li>
+    </ul>
+  </section>
+
+  <section class="section" aria-labelledby="type">
+    <h2 id="type">Type</h2>
+    <p class="note">Space Grotesk for text, JetBrains Mono for small labels. Both are served from your own site.</p>
+    <div class="type-sample">
+      <p class="display">Display, 64 px</p>
+      <p class="title" style="margin-top: 12px">Title, 48 px</p>
+      <p class="lead">Lead, 21 px: the line under a title.</p>
+      <p style="font-size: var(--size-body); line-height: 1.6; margin-bottom: 0">Body, 17 px: running text in short sentences.</p>
+      <p class="role">Label, JetBrains Mono, 14 px</p>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="buttons">
+    <h2 id="buttons">Buttons</h2>
+    <p class="note">→ leads to one of your own sites. ↗ leads to a site of someone else.</p>
+    <ul class="buttons" style="margin-top: 0">
+      <li><a class="button" href="https://silviu.bojica.com/">Own site<span class="arrow arrow-own" aria-hidden="true">→</span></a></li>
+      <li><a class="button" href="https://github.com/bojicas/bojicas-design-system" rel="noopener">Someone else's site<span class="arrow" aria-hidden="true">↗</span></a></li>
+    </ul>
+  </section>
+
+  <section class="section" aria-labelledby="cards">
+    <h2 id="cards">Cards</h2>
+    <div class="cards">
+      <section class="card">
+        <div class="avatar" role="img" aria-label="Empty circle in place of a pen drawing"></div>
+        <h3 class="title" style="margin-top: 24px; font-size: clamp(30px, 4vw, 38px)">A name</h3>
+        <p class="role">A role</p>
+        <p class="about">One short line about what this person does.</p>
+        <a class="button" href="https://silviu.bojica.com/">their-site.example<span class="arrow arrow-own" aria-hidden="true">→</span></a>
+      </section>
+      <section class="card">
+        <div class="avatar" role="img" aria-label="Empty circle in place of a pen drawing"></div>
+        <h3 class="title" style="margin-top: 24px; font-size: clamp(30px, 4vw, 38px)">Another name</h3>
+        <p class="role">Another role</p>
+        <p class="about">A second line, about as long as the first one.</p>
+        <a class="button" href="https://github.com/bojicas/bojicas-design-system" rel="noopener">Follow elsewhere<span class="arrow" aria-hidden="true">↗</span></a>
+      </section>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="facts">
+    <h2 id="facts">Facts</h2>
+    <dl class="facts">
+      <dt>Owner</dt><dd>A name</dd>
+      <dt>Residence</dt><dd>Vienna, Austria</dd>
+      <dt>Email</dt><dd><a href="mailto:someone@example.com">someone@example.com</a></dd>
+    </dl>
+  </section>
+
+  <section class="section prose" aria-labelledby="prose">
+    <h2 id="prose" style="margin-top: 0">Running text</h2>
+    <p>Short sentences in simple English. A <a href="https://github.com/bojicas/bojicas-design-system">link in the text</a> is blue and underlined.</p>
+    <ul>
+      <li>List markers are orange.</li>
+      <li>Code looks like <code>python3 build.py</code>.</li>
+    </ul>
+  </section>
+</main>
+<footer class="footer">
+  <p class="footer-meta"><span>© 2026 Silviu Bojica</span><span>Vienna, Austria</span></p>
+  <ul class="footer-links">
+    <li><a href="../LICENSE">Licence</a></li>
+    <li><a href="../docs/language.md">Language</a></li>
+  </ul>
+</footer>
+</body>
+</html>
