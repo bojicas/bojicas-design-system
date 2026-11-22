@@ -51,14 +51,20 @@ python3 build.py --font-path /fonts/ --out <site>/assets/css/bojicas.css --token
 
 1. Change a value in `tokens.json`, or a component in `src/`.
 2. Run `python3 build.py`. Never edit `dist/bojicas.css` by hand.
-3. Open the example page in light and dark mode, at 360 px and on a wide screen:
+3. Run the check. It builds the stylesheet again and fails when a part is missing or when a file asks another server for anything:
+
+   ```sh
+   python3 tests/check.py
+   ```
+
+4. Open the example page in light and dark mode, at 360 px and on a wide screen:
 
    ```sh
    python3 -m http.server 8098 --bind 127.0.0.1
    ```
 
    then http://localhost:8098/example/
-4. Raise the version in `tokens.json` and note the change in [`CHANGELOG.md`](CHANGELOG.md).
+5. Raise the version in `tokens.json` and note the change in [`CHANGELOG.md`](CHANGELOG.md).
 
 ## Licence
 
