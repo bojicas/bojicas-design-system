@@ -108,6 +108,124 @@
       <li>Code looks like <code>python3 build.py</code>.</li>
     </ul>
   </section>
+
+  <!-- The parts below are for a sports site. All names, events and numbers are invented. -->
+  <section class="section" aria-labelledby="hero">
+    <h2 id="hero">Hero</h2>
+    <p class="note">A large photo with a headline, one line and up to two buttons. The text sits on a solid panel, so it reads the same on any photo.</p>
+    <div class="hero">
+      <img class="hero-photo" src="photos/hero.svg" width="1600" height="900" alt="Stand-in drawing for a photo: a blue tennis court at dusk, with an orange sun above the net">
+      <div class="hero-text">
+        <h3 class="display">Alex Example</h3>
+        <p class="lead">Professional tennis player from Example City, on the women's tour since 2019.</p>
+        <ul class="buttons">
+          <li><a class="button" href="#results">See results<span class="arrow arrow-own" aria-hidden="true">→</span></a></li>
+          <li><a class="button" href="#icon-list">Become a partner<span class="arrow arrow-own" aria-hidden="true">→</span></a></li>
+        </ul>
+      </div>
+      <p class="hero-credit">Photo: Sam Example</p>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="stats">
+    <h2 id="stats">Stat row</h2>
+    <p class="note">Two to four big numbers. The digits have equal width.</p>
+    <dl class="stats">
+      <div class="stat"><dt class="stat-label">career-high WTA singles</dt><dd class="stat-value">484</dd><dd class="stat-note">current 660</dd></div>
+      <div class="stat"><dt class="stat-label">career-high WTA doubles</dt><dd class="stat-value">311</dd><dd class="stat-note">current 402</dd></div>
+      <div class="stat"><dt class="stat-label">UTR rating</dt><dd class="stat-value">10.11</dd></div>
+      <div class="stat"><dt class="stat-label">titles, all levels</dt><dd class="stat-value">17</dd><dd class="stat-note">4 in 2026</dd></div>
+    </dl>
+  </section>
+
+  <section class="section" aria-labelledby="results">
+    <h2 id="results">Results by season</h2>
+    <p class="note">One block per season. A win shows the word Winner, a trophy and a bar at the start of its row. Below 760 px each row becomes a stack.</p>
+    <div class="results">
+      <section class="results-season" aria-labelledby="season-2026">
+        <h3 class="results-year" id="season-2026">2026</h3>
+        <table class="results-table" role="table" aria-labelledby="season-2026">
+          <thead role="rowgroup">
+            <tr role="row"><th role="columnheader" scope="col">Event</th><th role="columnheader" scope="col">Place</th><th role="columnheader" scope="col">Date</th><th role="columnheader" scope="col">Singles</th><th role="columnheader" scope="col">Doubles</th></tr>
+          </thead>
+          <tbody role="rowgroup">
+            <tr role="row" class="results-row-win">
+              <th role="rowheader" scope="row">W15 Example City</th>
+              <td role="cell" data-label="Place">Example City, Austria</td>
+              <td role="cell" data-label="Date" class="results-date"><time datetime="2026-11-02">2026-11-02 Mon</time></td>
+              <td role="cell" data-label="Singles">Quarterfinal</td>
+              <td role="cell" data-label="Doubles"><span class="results-win"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M8 4h8v6a4 4 0 0 1-8 0z"/><path d="M8 6H5a3 3 0 0 0 3 4M16 6h3a3 3 0 0 1-3 4"/><path d="M12 14v5M8 20h8"/></svg>Winner</span></td>
+            </tr>
+            <tr role="row">
+              <th role="rowheader" scope="row">W35 Sample Town</th>
+              <td role="cell" data-label="Place">Sample Town, Germany</td>
+              <td role="cell" data-label="Date" class="results-date"><time datetime="2026-10-12">2026-10-12 Mon</time></td>
+              <td role="cell" data-label="Singles">Semifinal</td>
+              <td role="cell" data-label="Doubles">Final</td>
+            </tr>
+            <tr role="row" class="results-row-win">
+              <th role="rowheader" scope="row">W15 Testville</th>
+              <td role="cell" data-label="Place">Testville, Romania</td>
+              <td role="cell" data-label="Date" class="results-date"><time datetime="2026-09-14">2026-09-14 Mon</time></td>
+              <td role="cell" data-label="Singles"><span class="results-win"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M8 4h8v6a4 4 0 0 1-8 0z"/><path d="M8 6H5a3 3 0 0 0 3 4M16 6h3a3 3 0 0 1-3 4"/><path d="M12 14v5M8 20h8"/></svg>Winner</span></td>
+              <td role="cell" data-label="Doubles" class="results-none">Not played</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section class="results-season" aria-labelledby="season-2025">
+        <h3 class="results-year" id="season-2025">2025</h3>
+        <table class="results-table" role="table" aria-labelledby="season-2025">
+          <thead role="rowgroup">
+            <tr role="row"><th role="columnheader" scope="col">Event</th><th role="columnheader" scope="col">Place</th><th role="columnheader" scope="col">Date</th><th role="columnheader" scope="col">Singles</th><th role="columnheader" scope="col">Doubles</th></tr>
+          </thead>
+          <tbody role="rowgroup">
+            <tr role="row">
+              <th role="rowheader" scope="row">W15 Demo Bay</th>
+              <td role="cell" data-label="Place">Demo Bay, Spain</td>
+              <td role="cell" data-label="Date" class="results-date"><time datetime="2025-08-04">2025-08-04 Mon</time></td>
+              <td role="cell" data-label="Singles">Final</td>
+              <td role="cell" data-label="Doubles">Semifinal</td>
+            </tr>
+            <tr role="row" class="results-row-win">
+              <th role="rowheader" scope="row">W25 Example Hills</th>
+              <td role="cell" data-label="Place">Example Hills, Italy</td>
+              <td role="cell" data-label="Date" class="results-date"><time datetime="2025-05-19">2025-05-19 Mon</time></td>
+              <td role="cell" data-label="Singles">Quarterfinal</td>
+              <td role="cell" data-label="Doubles"><span class="results-win"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M8 4h8v6a4 4 0 0 1-8 0z"/><path d="M8 6H5a3 3 0 0 0 3 4M16 6h3a3 3 0 0 1-3 4"/><path d="M12 14v5M8 20h8"/></svg>Winner</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="photo-grid">
+    <h2 id="photo-grid">Photo grid</h2>
+    <p class="note">6 to 10 photos, each with a real alt text. The credit line is optional. Two columns on phones, more on wide screens.</p>
+    <ul class="photo-grid">
+      <li><figure class="photo"><img src="photos/court.svg" width="800" height="600" loading="lazy" alt="Stand-in drawing for a photo: a blue hard court seen from above, with white lines"><figcaption class="photo-credit">Photo: Sam Example</figcaption></figure></li>
+      <li><figure class="photo"><img src="photos/ball.svg" width="800" height="600" loading="lazy" alt="Stand-in drawing for a photo: an orange tennis ball with a white seam, on a dark ground"><figcaption class="photo-credit">Photo: <a class="out" href="https://example.com/"><span class="out-text">Example Photos</span><span class="arrow-out" aria-hidden="true">↗</span></a></figcaption></figure></li>
+      <li><figure class="photo"><img src="photos/net.svg" width="800" height="600" loading="lazy" alt="Stand-in drawing for a photo: the net of a tennis court, close up"></figure></li>
+      <li><figure class="photo"><img src="photos/racket.svg" width="800" height="600" loading="lazy" alt="Stand-in drawing for a photo: a tennis racket and an orange ball on a light blue ground"><figcaption class="photo-credit">Photo: Sam Example</figcaption></figure></li>
+      <li><figure class="photo"><img src="photos/seats.svg" width="800" height="600" loading="lazy" alt="Stand-in drawing for a photo: rows of blue seats in a stadium"></figure></li>
+      <li><figure class="photo"><img src="photos/trophy.svg" width="800" height="600" loading="lazy" alt="Stand-in drawing for a photo: an orange trophy on a white ground"><figcaption class="photo-credit">Photo: Sam Example</figcaption></figure></li>
+      <li><figure class="photo"><img src="photos/sunset.svg" width="800" height="600" loading="lazy" alt="Stand-in drawing for a photo: an orange sun that sets behind a blue court"></figure></li>
+      <li><figure class="photo"><img src="photos/shoes.svg" width="800" height="600" loading="lazy" alt="Stand-in drawing for a photo: a blue tennis shoe with white laces"><figcaption class="photo-credit">Photo: Sam Example</figcaption></figure></li>
+    </ul>
+  </section>
+
+  <section class="section" aria-labelledby="icon-list">
+    <h2 id="icon-list">Icon list</h2>
+    <p class="note">Short items, each with an icon and one line. The icons are inline SVG, from <code>dist/icons/</code>.</p>
+    <ul class="icon-list">
+      <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/><path d="M6 12h.01M18 12h.01"/></svg>Financial support</li>
+      <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 8 12 3 3 8v8l9 5 9-5z"/><path d="m3 8 9 5 9-5"/><path d="M12 13v8"/></svg>Product sponsorship</li>
+      <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>Brand visibility</li>
+      <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/><path d="M8 7v13M16 7v13"/></svg>Travel and logistics support</li>
+      <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>Brand ambassador</li>
+    </ul>
+  </section>
 </main>
 <footer class="footer">
   <p class="footer-meta"><span>© 2026 Silviu Bojica</span><span>Vienna, Austria</span></p>

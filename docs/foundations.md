@@ -59,3 +59,6 @@ The blue `#226DBD` and the orange `#E8740C` / `#F28C28` are the same hues as in 
 - **Buttons and links that stand alone at least 44 px high,** such as the back link, tags, footer links and list items. A link inside a sentence follows the line height instead: in running text, and in a short credit such as "Photo: name on Unsplash". A 44 px line would tear the text apart, and the accessibility rules (WCAG 2.2, target size) exempt such links.
 - **No requests to other servers:** no CDNs, no font services, no analytics, no embeds. Links to other sites are fine.
 - **Flat surfaces:** no gradients, no shadows, no glow.
+- **Text never sits on a photo by itself.** It sits on a solid panel in the card colour, as in the hero, so it keeps its contrast whatever the photo shows.
+- **Numbers that are compared have digits of equal width** (`font-variant-numeric: tabular-nums`), as in the stat row and the results.
+- **Icons are inline SVG,** from [`dist/icons/`](../dist/icons/). No icon font. An icon never carries a meaning alone: a word next to it does.

@@ -1,5 +1,18 @@
 # Changelog
 
+## Unreleased
+
+Five parts for a sports site, first for [stefania.bojica.com](https://stefania.bojica.com/). Every family site can use them.
+
+- Hero: a large photo with a headline, one line and up to two buttons. The text sits on a solid panel, never on the photo itself, so it reads the same on any photo, in light and dark mode.
+- Stat row: two to four big numbers, each with a label and an optional second line. The digits have equal width.
+- Results by season: one table per season, with event, place, date and the round in singles and doubles. A win shows the word "Winner", a trophy and an orange bar at the start of its row, never colour alone. Below 760 px each row becomes a stack, with no sideways scroll.
+- Photo grid: 6 to 10 photos in even tiles, each with an alt text and an optional credit line.
+- Icon list: short items, each with an icon in a round tile and one line, for example the ways to partner.
+- Icons: six line icons as inline SVG in `dist/icons/`, and an `.icon` class. No icon font.
+- `tests/check.py`: builds the stylesheet and checks that `dist/bojicas.css` is up to date, that every part is in it, that it asks no other server for anything, and that the example page loads nothing from another server.
+- Foundations: text on a photo sits on a solid panel; numbers that are compared have digits of equal width; icons are inline SVG.
+
 ## 0.3.0 (Wednesday, 4 November 2026)
 
 - Links to sites of someone else end in a small orange ↗, also in running text, outside the underline (`a.out`). Links to your own sites carry no mark. Links open in the same tab. The language docs show in one table how buttons and links use the arrows.
