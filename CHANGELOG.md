@@ -1,8 +1,8 @@
 # Changelog
 
-## Unreleased
+## 0.4.0 (Sunday, 22 November 2026)
 
-Five parts for a sports site, first for [stefania.bojica.com](https://stefania.bojica.com/). Every family site can use them.
+Six parts for a sports site, first for [stefania.bojica.com](https://stefania.bojica.com/). Every family site can use them.
 
 - Hero: a large photo with a headline, one line and up to two buttons. The text sits on a solid panel, never on the photo itself, so it reads the same on any photo, in light and dark mode.
 - Stat row: two to four big numbers, each with a label and an optional second line. The digits have equal width.

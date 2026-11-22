@@ -4,7 +4,7 @@ One look and one voice for every public page of Silviu Bojica: [bojica.com](http
 
 It is small on purpose: eight colours, two fonts, a handful of components, and a set of rules for how the words read. Think of it as a recipe card that several kitchens share. Change the recipe once, and every kitchen cooks the same dish.
 
-**Status:** version 0.3.0. It is used by [silviu.bojica.com](https://silviu.bojica.com/) and by the family page [bojica.com](https://bojica.com/).
+**Status:** version 0.4.0. It is used by [silviu.bojica.com](https://silviu.bojica.com/) and by the family page [bojica.com](https://bojica.com/).
 
 ## What is in it
 
@@ -30,7 +30,7 @@ It is small on purpose: eight colours, two fonts, a handful of components, and a
 Copy the whole `dist/` folder into your site, so that `bojicas.css` and `fonts/` sit side by side, and link the stylesheet:
 
 ```html
-<link rel="stylesheet" href="dist/bojicas.css?v=0.3.0">
+<link rel="stylesheet" href="dist/bojicas.css?v=0.4.0">
 ```
 
 The `?v=` mark matters: many servers let browsers keep a stylesheet for weeks. Give every new version a new mark, or visitors see new pages with old styles.
