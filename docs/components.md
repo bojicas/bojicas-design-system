@@ -139,7 +139,7 @@ A large photo with a headline, one line under it, and up to two buttons, at the 
 ```
 
 - The photo is a local file of the site, at most 2400 px wide, with its metadata stripped (see [Images](language.md#images)).
-- The photo is cut to fit: 4 : 3 on phones, and at least 440 px high on wide screens. Keep the subject away from the lower left corner, where the panel lies. To move the cut, add `style="object-position: 50% 30%"` to the image.
+- The photo is cut to fit: 4 : 3 on phones, and 440 to 560 px high on wide screens, whatever the shape of the photo. Only a panel with more text makes it higher. Keep the subject away from the lower left corner, where the panel lies. To move the cut, add `style="object-position: 50% 30%"` to the image.
 - The credit line is optional. A photo by someone else needs one.
 
 ## Stat row
@@ -209,7 +209,7 @@ From 760 px the season is a table with fixed columns, so the seasons line up und
 
 ## Photo grid
 
-6 to 10 photos in even tiles, each with a real alt text and an optional credit line. Two columns on phones, three or more from 640 px, as the room allows. Each tile is cut to 4 : 3.
+6 to 10 photos in even tiles, each with a real alt text and an optional credit line. Two columns on phones. From 640 px each tile is at least 220 px wide, so three or more columns appear as the room allows. Each tile is cut to 4 : 3.
 
 ```html
 <ul class="photo-grid">

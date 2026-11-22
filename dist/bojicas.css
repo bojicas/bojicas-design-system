@@ -307,9 +307,10 @@ a.out:hover .arrow-out { left: 1.5px; top: -1.5px; }
   color: var(--muted);
 }
 @media (min-width: 760px) {
-  /* The photo fills its row, which is at least 440 px high and grows when the panel needs more room. */
+  /* The photo fills its row, which is 440 to 560 px high and grows only when the panel needs more room.
+     Height 0 with a minimum of 100% keeps the photo's own size out of the row, so a tall photo is cut, not shown whole. */
   .hero { grid-template-rows: minmax(clamp(440px, 40vw, 560px), auto); }
-  .hero-photo { height: 100%; aspect-ratio: auto; }
+  .hero-photo { height: 0; min-height: 100%; aspect-ratio: auto; }
   .hero-text {
     grid-row: 1;
     align-self: end;
@@ -380,8 +381,9 @@ a.out:hover .arrow-out { left: 1.5px; top: -1.5px; }
 .results-table thead th:nth-child(3) { width: 20%; }
 .results-table tbody th { position: relative; font-weight: 600; }
 .results-date { font-family: var(--mono); font-size: var(--size-small); white-space: nowrap; }
-.results-win { display: inline-flex; align-items: center; gap: 6px; font-weight: 600; }
-.results-win .icon { width: 18px; height: 18px; color: var(--orange); }
+/* The word stays on the text line of its row, so it lines up with the other cells; the trophy sits beside it. */
+.results-win { font-weight: 600; white-space: nowrap; }
+.results-win .icon { width: 18px; height: 18px; margin-right: 6px; vertical-align: -3px; color: var(--orange); }
 .results-none { color: var(--muted); }
 /* The bar at the start of a row with a win. It is a drawn line, not a border, so the columns stay in place. */
 .results-row-win > th:first-child::before {
@@ -394,7 +396,7 @@ a.out:hover .arrow-out { left: 1.5px; top: -1.5px; }
   border-radius: var(--radius-bar);
   background: var(--orange);
 }
-@media (max-width: 760px) {
+@media (max-width: 759.98px) {
   .results-table, .results-table tbody, .results-table tr, .results-table th, .results-table td { display: block; }
   /* The column heads stay for screen readers; on screen each value carries its own label. */
   .results-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }

@@ -11,11 +11,12 @@ It builds the stylesheet into a temporary file and checks:
   4. The example page and the SVG files load nothing from another server.
   5. Every image on the example page has a real alt text.
   6. The icons are inline SVG that hide from screen readers.
-  7. The stylesheets in src/ take every colour from the tokens.
+  7. The stylesheets in src/ take every colour from the tokens, and draw no gradient and no shadow.
   8. The words: no em dash, no en dash and no contractions in the docs, the README, the changelog and the example.
 
 It prints one line per check and ends with exit code 1 when a check fails. Only the Python standard library is needed.
 """
+import html
 import re
 import subprocess
 import sys
@@ -42,6 +43,32 @@ PARTS = {
 ICONS = ["money", "package", "eye", "suitcase", "star", "trophy"]
 # The only address that may appear in an SVG file: the name of the SVG language, which is never loaded.
 SVG_NAMESPACE = "http://www.w3.org/2000/svg"
+# The named colours of CSS. A stylesheet in src/ may use none of them: every colour comes from a token.
+NAMED_COLOURS = (
+    "aliceblue antiquewhite aqua aquamarine azure beige bisque black blanchedalmond blue blueviolet brown burlywood "
+    "cadetblue chartreuse chocolate coral cornflowerblue cornsilk crimson cyan darkblue darkcyan darkgoldenrod darkgray "
+    "darkgreen darkgrey darkkhaki darkmagenta darkolivegreen darkorange darkorchid darkred darksalmon darkseagreen "
+    "darkslateblue darkslategray darkslategrey darkturquoise darkviolet deeppink deepskyblue dimgray dimgrey dodgerblue "
+    "firebrick floralwhite forestgreen fuchsia gainsboro ghostwhite gold goldenrod gray green greenyellow grey honeydew "
+    "hotpink indianred indigo ivory khaki lavender lavenderblush lawngreen lemonchiffon lightblue lightcoral lightcyan "
+    "lightgoldenrodyellow lightgray lightgreen lightgrey lightpink lightsalmon lightseagreen lightskyblue lightslategray "
+    "lightslategrey lightsteelblue lightyellow lime limegreen linen magenta maroon mediumaquamarine mediumblue "
+    "mediumorchid mediumpurple mediumseagreen mediumslateblue mediumspringgreen mediumturquoise mediumvioletred "
+    "midnightblue mintcream mistyrose moccasin navajowhite navy oldlace olive olivedrab orange orangered orchid "
+    "palegoldenrod palegreen paleturquoise palevioletred papayawhip peachpuff peru pink plum powderblue purple "
+    "rebeccapurple red rosybrown royalblue saddlebrown salmon sandybrown seagreen seashell sienna silver skyblue "
+    "slateblue slategray slategrey snow springgreen steelblue tan teal thistle tomato turquoise violet wheat white "
+    "whitesmoke yellow yellowgreen canvas canvastext linktext visitedtext activetext buttonface buttontext field fieldtext "
+    "highlight highlighttext graytext mark marktext"
+).split()
+COLOUR = re.compile(
+    r"#[0-9a-f]{3,8}\b"                                                          # hex
+    r"|(?:rgba?|hsla?|hwb|oklab|oklch|lab|lch|color|color-mix)\("               # colour functions
+    r"|(?<![\w-])(?:" + "|".join(NAMED_COLOURS) + r")(?![\w-])",               # named colours, not inside --orange
+    re.I)
+# Flat surfaces: no gradients, no shadows, no glow.
+NOT_FLAT = re.compile(r"gradient\(|box-shadow|text-shadow|drop-shadow|backdrop-filter", re.I)
+
 # Words that the alt text of an image must not be on its own.
 EMPTY_ALT = {"", "image", "photo", "picture", "img", "icon"}
 
@@ -70,6 +97,8 @@ class Page(HTMLParser):
     LOADS = {"img": ["src", "srcset"], "source": ["src", "srcset"], "script": ["src"], "iframe": ["src"],
              "video": ["src", "poster"], "audio": ["src"], "embed": ["src"], "object": ["data"],
              "image": ["href", "xlink:href"], "use": ["href", "xlink:href"]}
+    # rel values of <link> that fetch nothing.
+    NAMES_ONLY = {"alternate", "canonical", "author", "license", "me", "next", "prev", "help", "search", "bookmark"}
 
     def __init__(self):
         super().__init__()
@@ -81,8 +110,14 @@ class Page(HTMLParser):
         self.classes.update((a.get("class") or "").split())
         if tag == "img":
             self.images.append(a)
-        if tag == "link" and "stylesheet" in (a.get("rel") or "") or tag == "link" and "preload" in (a.get("rel") or ""):
+        # Every <link> makes the browser fetch or contact its address (stylesheet, icon, preconnect, manifest, ...),
+        # except the few kinds that only name a page.
+        if tag == "link" and not set((a.get("rel") or "").lower().split()) <= self.NAMES_ONLY:
             self.loads.append(a.get("href") or "")
+        if tag == "input" and (a.get("type") or "").lower() == "image":
+            self.loads.append(a.get("src") or "")
+        if tag == "meta" and (a.get("http-equiv") or "").lower() == "refresh":
+            self.loads.append((a.get("content") or "").partition("url=")[2] or "")
         for name in self.LOADS.get(tag, []):
             for part in (a.get(name) or "").split(","):
                 if part.strip():
@@ -153,10 +188,15 @@ def main():
                   and root.get("stroke") == "currentColor" and "icon" in (root.get("class") or "").split())
         check(ok, f"dist/icons/{name}.svg is a hidden SVG icon in the text colour")
 
-    # 7. Every colour in src/ comes from the tokens, as a CSS variable.
+    # 7. Every colour in src/ comes from the tokens, as a CSS variable, and every surface is flat.
     for source in sorted((ROOT / "src").glob("*.css")):
-        found = re.findall(r"#[0-9a-f]{3,8}\b|\b(?:rgba?|hsla?|oklch|lab|lch)\(|\b(?:red|black)\b", strip_css_comments(source.read_text()), flags=re.I)
+        rules_only = strip_css_comments(source.read_text())
+        # Strings such as content: "·" and attribute names are not colours.
+        rules_only = re.sub(r'"[^"]*"|attr\([^)]*\)', "", rules_only)
+        found = COLOUR.findall(rules_only)
         check(not found, f"{source.relative_to(ROOT)} takes its colours from the tokens" + (f": {found}" if found else ""))
+        found = NOT_FLAT.findall(rules_only)
+        check(not found, f"{source.relative_to(ROOT)} has flat surfaces: no gradient, no shadow" + (f": {found}" if found else ""))
 
     # 8. The words.
     contraction = re.compile(r"\b\w+n[’']t\b|\b(?:it|that|there|here|what|let|who)[’']s\b|\b(?:i|you|we|they)[’'](?:m|re|ve|ll|d)\b", re.I)
@@ -164,6 +204,8 @@ def main():
     for path in texts:
         dashes, contractions = [], []
         for number, line in enumerate(path.read_text().splitlines(), 1):
+            # Decode entities first, so &mdash; and &#8211; count as dashes too.
+            line = html.unescape(line)
             if "—" in line or "–" in line:
                 dashes.append(number)
             # The rule itself quotes the contractions it forbids.
