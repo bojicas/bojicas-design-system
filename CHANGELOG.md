@@ -9,6 +9,7 @@ Five parts for a sports site, first for [stefania.bojica.com](https://stefania.b
 - Results by season: one table per season, with event, place, date and the round in singles and doubles. A win shows the word "Winner", a trophy and an orange bar at the start of its row, never colour alone. Below 760 px each row becomes a stack, with no sideways scroll.
 - Photo grid: 6 to 10 photos in even tiles, each with an alt text and an optional credit line.
 - Icon list: short items, each with an icon in a round tile and one line, for example the ways to partner.
+- Language switch: a row of links to the same page in other languages, for example EN, DE, RO. Each link is 44 px high, with `lang` and `hreflang`. The current language has `aria-current="page"`, a round outline and no underline, not only another colour. No JavaScript.
 - Icons: six line icons as inline SVG in `dist/icons/`, and an `.icon` class. No icon font.
 - `tests/check.py`: builds the stylesheet and checks that `dist/bojicas.css` is up to date, that every part is in it, that it asks no other server for anything, and that the example page loads nothing from another server.
 - Foundations: text on a photo sits on a solid panel; numbers that are compared have digits of equal width; icons are inline SVG.

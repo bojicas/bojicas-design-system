@@ -9,7 +9,8 @@ It builds the stylesheet into a temporary file and checks:
      its section in docs/components.md, and an example on example/index.html.
   3. The stylesheet asks no other server for anything: no @import, and every url() is a local path.
   4. The example page and the SVG files load nothing from another server.
-  5. Every image on the example page has a real alt text.
+  5. Every image on the example page has a real alt text. The language switch has lang, hreflang and
+     one current page, marked by more than colour.
   6. The icons are inline SVG that hide from screen readers.
   7. The stylesheets in src/ take every colour from the tokens, and draw no gradient and no shadow.
   8. The words: no em dash, no en dash and no contractions in the docs, the README, the changelog and the example.
@@ -39,6 +40,7 @@ PARTS = {
                           "results-win", "results-row-win", "results-none"],
     "Photo grid": ["photo-grid", "photo", "photo-credit"],
     "Icon list": ["icon-list"],
+    "Language switch": ["lang-switch", "lang-name"],
 }
 ICONS = ["money", "package", "eye", "suitcase", "star", "trophy"]
 # The only address that may appear in an SVG file: the name of the SVG language, which is never loaded.
@@ -173,6 +175,22 @@ def main():
         text = svg.read_text().replace(SVG_NAMESPACE, "")
         found = re.findall(r"(?:https?:|ftp:)?//[\w.-]+|url\(|href\s*=|<script|<foreignObject", text, flags=re.I)
         check(not found, f"{svg.relative_to(ROOT)} loads nothing" + (f": {found}" if found else ""))
+
+    # 4b. The language switch: plain links, each with lang and hreflang, one marked as the current page,
+    # and the current one marked by more than colour, with every link 44 px high and wide.
+    navs = re.findall(r'<nav class="lang-switch"[^>]*>(.*?)</nav>', EXAMPLE.read_text(), flags=re.S)
+    links = re.findall(r"<a\b([^>]*)>", navs[0]) if navs else []
+    check(len(links) >= 2 and all(re.search(r'\blang="[a-z-]+"', a) and re.search(r'\bhreflang="[a-z-]+"', a) for a in links),
+          f"Language switch: all {len(links)} links on example/index.html have lang and hreflang")
+    current = [a for a in links if 'aria-current="page"' in a]
+    check(len(current) == 1, f"Language switch: exactly one link is the current page (found {len(current)})")
+    check(not re.search(r"<script|\bon[a-z]+=", navs[0] if navs else "<script"), "Language switch: no JavaScript")
+    block = re.search(r'\.lang-switch a\[aria-current="page"\]\s*\{([^}]*)\}', rules)
+    check(bool(block) and "text-decoration: none" in block.group(1) and "border-color" in block.group(1),
+          "Language switch: the current language is marked by more than colour (no underline, an outline)")
+    block = re.search(r"\.lang-switch a\s*\{([^}]*)\}", rules)
+    check(bool(block) and "min-height: var(--touch-min)" in block.group(1) and "min-width: var(--touch-min)" in block.group(1),
+          "Language switch: every link is at least 44 px high and wide")
 
     # 5. Real alt texts.
     bad = [i.get("src") for i in page.images if (i.get("alt") or "").strip().lower() in EMPTY_ALT]

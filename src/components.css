@@ -370,6 +370,31 @@ a.out:hover .arrow-out { left: 1.5px; top: -1.5px; }
   color: var(--orange);
 }
 
+/* Language switch: a row of links to the same page in other languages, for example EN, DE, RO. No JavaScript.
+   Each link is 44 px high and wide. The other languages are blue and underlined. The current one is marked
+   by more than colour: it is in the text colour, bold, not underlined, and sits in a round outline. */
+.lang-switch ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--space-xs); }
+.lang-switch a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--touch-min);
+  min-height: var(--touch-min);
+  padding: 0 10px;
+  border: 1.5px solid transparent;
+  border-radius: var(--radius-pill);
+  font-family: var(--mono);
+  font-size: var(--size-small);
+  color: var(--blue);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+.lang-switch a:hover { text-decoration-thickness: 2px; }
+.lang-switch a[aria-current="page"] { border-color: var(--ink); color: var(--ink); font-weight: 600; text-decoration: none; }
+/* The full name of the language, for screen readers only: "DE Deutsch". The short code stays the visible label. */
+.lang-switch .lang-name { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
 @media (max-width: 600px) {
   /* Narrow screens: the legal links get their own line, without a leading dot. */
   .footer { flex-direction: column; }

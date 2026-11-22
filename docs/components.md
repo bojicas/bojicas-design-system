@@ -243,3 +243,24 @@ Short items, each with an icon in a round tile and one line, for example the way
 
 - Put the SVG of the icon in place of each comment. The icon is orange, in a tile with a hairline border.
 - Keep each item to one short line. The icon list is not for links: a link list uses buttons.
+
+## Language switch
+
+A row of links to the same page in other languages, for example EN, DE, RO. Put it in the header of every page, in the same place. There is no JavaScript: each link is a plain link to the other page.
+
+```html
+<nav class="lang-switch" aria-label="Language">
+  <ul>
+    <li><a href="/" lang="en" hreflang="en" aria-current="page">EN<span class="lang-name"> English</span></a></li>
+    <li><a href="/de/" lang="de" hreflang="de">DE<span class="lang-name"> Deutsch</span></a></li>
+    <li><a href="/ro/" lang="ro" hreflang="ro">RO<span class="lang-name"> Română</span></a></li>
+  </ul>
+</nav>
+```
+
+- Each link is at least 44 px high and 44 px wide.
+- The other languages are blue and underlined. The current language is marked by more than colour: it carries `aria-current="page"`, and it shows in the text colour, in bold, with no underline, in a round outline.
+- `lang` tells a screen reader how to say the name. `hreflang` tells it, and search engines, the language of the page behind the link.
+- The short code is the visible label. The full name, in its own language, is in `lang-name` for screen readers only, so they read "DE Deutsch".
+- Link each language to the same page in that language, not to its home page. In Hugo, the `.Translations` of a page give these links.
+- Translate the `aria-label` of the `nav` with the page: "Language", "Sprache", "Limbă".
